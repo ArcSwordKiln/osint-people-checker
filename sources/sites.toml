@@ -1,0 +1,66 @@
+# Site checks. One [[site]] per site, kept in alphabetical order.
+#
+# url        Profile URL. {name} is replaced with the nickname being checked.
+# found      Text that only appears on a real profile page.
+# missing    Text that only appears when the account doesn't exist.
+# created    Optional. A pattern that captures the account creation date.
+# kind       What the site is, used to pick checks for each reason.
+#
+# A response that matches neither `found` nor `missing` (a bot wall, a login
+# page, a rate limit) is reported as "couldn't check", never as a hit.
+
+[[site]]
+name = "Bluesky"
+url = "https://bsky.app/profile/{name}.bsky.social"
+api = "https://public.api.bsky.app/xrpc/app.bsky.actor.getProfile?actor={name}.bsky.social"
+found = '"handle":'
+missing = "Profile not found"
+created = '"createdAt":"(?<date>[0-9T:.-]+Z)"'
+kind = ["social"]
+
+[[site]]
+name = "Codeberg"
+url = "https://codeberg.org/{name}"
+api = "https://codeberg.org/api/v1/users/{name}"
+found = '"login":'
+missing = "user does not exist"
+created = '"created":"(?<date>[0-9T:+-]+)"'
+kind = ["developer"]
+
+[[site]]
+name = "GitHub"
+url = "https://github.com/{name}"
+api = "https://api.github.com/users/{name}"
+found = '"login":'
+missing = '"message": "Not Found"'
+created = '"created_at": "(?<date>[0-9T:-]+Z)"'
+kind = ["developer"]
+# Commit emails from public events are a lead, never a finding on their own.
+leads = ["email"]
+
+[[site]]
+name = "Gravatar"
+url = "https://gravatar.com/{email_sha256}"
+api = "https://api.gravatar.com/v3/profiles/{email_sha256}"
+input = "email"
+found = '"profile_url":'
+missing = "Profile not found"
+kind = ["profile"]
+leads = ["name", "links"]
+
+[[site]]
+name = "Mastodon (mastodon.social)"
+url = "https://mastodon.social/@{name}"
+api = "https://mastodon.social/.well-known/webfinger?resource=acct:{name}@mastodon.social"
+found = '"subject":'
+missing = "not found"
+kind = ["social"]
+
+[[site]]
+name = "Reddit"
+url = "https://www.reddit.com/user/{name}"
+api = "https://www.reddit.com/user/{name}/about.json"
+found = '"name":'
+missing = '"error": 404'
+created = '"created_utc": (?<epoch>[0-9]+)'
+kind = ["social", "forum"]

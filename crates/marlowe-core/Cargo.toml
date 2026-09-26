@@ -1,0 +1,10 @@
+[package]
+name = "marlowe-core"
+description = "Checks, verdicts and receipts for Marlowe"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+repository.workspace = true
+
+[dependencies]
