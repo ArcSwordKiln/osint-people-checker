@@ -1,0 +1,7 @@
+/target
+/app/dist
+*.marlowe-case
+.DS_Store
+
+# The Windows build is attached to each release, not committed.
+/release/
