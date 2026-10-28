@@ -1,0 +1,8 @@
+# The GitHub "About" box. The Settings app (github.com/apps/settings) applies this
+# on every push; without it, copy the description and topics in by hand.
+# Upload .github/social-preview.png in Settings -> General -> Social preview.
+repository:
+  name: osint-people-checker
+  description: "Free OSINT app: check a seller, recruiter, landlord or website before you trust them. 3,400+ public sources, a verdict in plain words and saved proof for every finding. A Sherlock and Maigret alternative with a window. Windows, runs on your PC."
+  topics: osint, osint-tool, sherlock-alternative, maigret-alternative, username-search, email-lookup, phone-lookup, scam-detection, scam-checker, fraud-prevention, due-diligence, digital-footprint, data-broker-opt-out, evidence-collection, privacy, investigation, free, desktop-app, tauri, rust
+  has_wiki: false
