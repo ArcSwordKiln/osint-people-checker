@@ -32,12 +32,11 @@ It's free, there's no account, and it runs on your PC.
 
 | System | File | |
 |---|---|---|
-| Windows 10 and 11 | [`osint-people-checker.zip`](https://github.com/ArcSwordKiln/osint-people-checker/releases/latest/download/osint-people-checker.zip) | One zip. No installer, no admin rights |
+| Windows 10 and 11 | [`Verdict-1.2.10-portable-x64.exe`](https://github.com/ArcSwordKiln/osint-people-checker/releases/latest/download/Verdict-1.2.10-portable-x64.exe) | One zip. No installer, no admin rights |
 
-Unpack the whole folder and start `Main.exe`. No installer, no admin rights.
+Download and start the exe. No installer, no admin rights.
 
-`Main.exe` is code-signed, so Windows starts it without a warning. Keep
-`Verdict` next to it: they ship together.
+The build is not code-signed yet, so SmartScreen may warn once: choose **More info**, then **Run anyway**.
 
 
 ## How to use
